@@ -1,13 +1,11 @@
-require 'sinatra/base'
+require 'sinatra'
+require './attack.rb'
 
 class Battle < Sinatra::Base
 
-  enable :sessions
+attr_accessor :HP_P1, :HP_P2
 
-  def initialize
-    @HP_P1 = 100
-    @HP_P2 = 100
-  end
+  enable :sessions
 
   get '/' do
     erb :index
@@ -23,15 +21,22 @@ class Battle < Sinatra::Base
     @player_1 = session[:player_1]
     @player_2 = session[:player_2]
     erb :play
-
-    if #{attack_player_2}(click_button) 
-      @HP_P1 -= 10
-    end
-
-    if #attack_player_2(click_button) 
-      @HP_P2 -= 10
-    end
   end
+
+  post '/attack' do
+    @player_1 = session[:player_1]
+    @player_2 = session[:player_2]
+    erb :attack
+  end
+
+    # if #{attack_player_2}(click_button) 
+    #   @HP_P1 -= 10
+    # end
+
+    # if #attack_player_2(click_button) 
+    #   @HP_P2 -= 10
+    # end
+  
 
 
   run! if app_file == $0

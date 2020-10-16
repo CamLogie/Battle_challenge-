@@ -1,10 +1,13 @@
 <h1> Player 1: <%= @player_1 %> </h1>
+<h2> HP: 100 </h2>
 
-<form method="post" action="/play">
-<input type="hidden" name="attack_points" value="Hello">Attack Player 2<h2> HP: <%=@HP_P1%> </h2>
-<input class='attack_player_2' type='submit' value='Attack'>
+<form method="post" action="/attack">
+<input type=submit value='Attack P2'>
 </form>
 
-
 <h1> Player 2: <%= @player_2 %> </h1>
-<input id='attack_player_1' type="button">Attack Player 1</input><h2> HP: <%=@HP_P2%> </h2>
+<h2> HP: 100 </h2>
+
+<form method="post" action="/attack">
+<input type=submit value='Attack P1'>
+</form>
